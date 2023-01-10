@@ -1,0 +1,32 @@
+.messageCard {
+    background: #741188; 
+    border: 4mm ridge rgba(229, 227, 240, 0.6);
+    border-radius: 10px;
+    position: relative;
+}
+
+.messageCard h1 {
+    font-family: 'Dancing Script', cursive;
+    color: grey;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.messageCard p {
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.signer {
+    position:absolute;
+    bottom:0;
+    margin: 10px;
+    margin-top: 20px;
+    right: 10px;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+}
