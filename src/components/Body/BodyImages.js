@@ -1,11 +1,8 @@
 import { Fragment } from "react";
 
-import BodyRow from "./BodyRow";
-
 import image1 from "../../assets/images/20220619_191909.jpg";
 import image2 from "../../assets/images/20220627_231841.jpg";
 import image3 from "../../assets/images/IMG-20230102-WA0005.jpg";
-import image4 from "../../assets/images/20220817_221124.jpg";
 import classes from "./BodyImages.module.css";
 
 const BodyImages = () => {
