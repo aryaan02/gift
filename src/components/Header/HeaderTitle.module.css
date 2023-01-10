@@ -1,0 +1,8 @@
+.text {
+    color: white;
+    padding: 0.3rem;
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    justify-content: center;
+}
