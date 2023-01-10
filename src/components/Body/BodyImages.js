@@ -8,7 +8,6 @@ import classes from "./BodyImages.module.css";
 const BodyImages = () => {
   return (
     <Fragment>
-      {/* <BodyRow rowClass={classes.images} one={image1} two={image2} three={image3} four={image4} /> */}
       <div className={classes.row}>
         <div className={classes.images}>
           <div className={classes.card}>
