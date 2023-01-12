@@ -11,6 +11,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider);
@@ -18,12 +19,12 @@ export const AuthContextProvider = ({ children }) => {
 
   const logOut = () => {
     signOut(auth);
-  }
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log('User', currentUser);
+      console.log("User", currentUser);
     });
     return () => {
       unsubscribe();
