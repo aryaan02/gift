@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <div className={classes.header}>
       <HeaderTitle />
-      <HeaderNav onSetImages={props.onSetImages} onSetMessages={props.onSetMessages} onSetSignIn={props.onSetSignIn} />
+      <HeaderNav onSetImages={props.onSetImages} onSetMessages={props.onSetMessages} signedIn={props.signedIn} />
     </div>
   );
 };

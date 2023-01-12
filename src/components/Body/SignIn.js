@@ -1,11 +1,13 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { GoogleButton } from "react-google-button";
 import { UserAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 import classes from "./SignIn.module.css";
 
 const SignIn = (props) => {
-  const { googleSignIn } = UserAuth();
+  const { googleSignIn, user } = UserAuth();
+  const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
     try {
@@ -14,6 +16,12 @@ const SignIn = (props) => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (user != null) {
+      navigate('/home');
+    }
+  }, [user, navigate])
 
   return (
     <Fragment>
