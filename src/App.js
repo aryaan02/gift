@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
-import SignIn from './components/Body/SignIn';
+import SignIn from "./components/Body/SignIn";
 import React, { useState } from "react";
 import { AuthContextProvider } from "./context/AuthContext";
 
@@ -34,12 +34,7 @@ function App() {
           onSetSignIn={displayTheSignIn}
         />
         <Routes>
-          <Route
-            path="/"
-            elements={
-              <SignIn />
-            }
-          />
+          <Route path="/" elements={<SignIn />} />
         </Routes>
         <Body
           displayedImages={imagesDisplayed}

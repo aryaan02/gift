@@ -14,20 +14,12 @@ const HeaderNav = (props) => {
   };
   return (
     <div className={classes.nav}>
-      {user?.displayName ? (
-        <Button onClick={props.onSetImages}>Images</Button>
-      ) : (
-        <div />
-      )}
-      {user?.displayName ? (
-        <Button onClick={props.onSetMessages}>Messages</Button>
-      ) : (
-        <div />
-      )}
+      <Button onClick={props.onSetImages}>Images</Button>
+      <Button onClick={props.onSetMessages}>Messages</Button>
       {user?.displayName ? (
         <Button onClick={handleSignOut}>Sign Out</Button>
       ) : (
-        <Button>Sign In</Button>
+        <Button onClick={props.onSetSignIn}>Sign In</Button>
       )}
     </div>
   );
