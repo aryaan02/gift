@@ -3,6 +3,7 @@
     border: 4mm ridge rgba(229, 227, 240, 0.6);
     border-radius: 10px;
     position: relative;
+    width: 80%;
 }
 
 .messageCard h1 {
@@ -14,7 +15,6 @@
 }
 
 .messageCard p {
-    font-family: 'Dancing Script', cursive;
     color: white;
     margin-left: 20px;
     margin-top: 10px;
@@ -27,6 +27,7 @@
     margin: 10px;
     margin-top: 20px;
     right: 10px;
+    font-size: 20px;
     font-family: 'Dancing Script', cursive;
     color: white;
 }

@@ -2,13 +2,11 @@ import React from "react";
 import classes from "./Message.module.css";
 
 const Message = (props) => {
-    return <div className={classes.messageCard}>
-        <h1>Message Title</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat omnis itaque assumenda, fugit et similique iste illo pariatur aut repellendus sequi ipsam dicta placeat recusandae voluptate, ad earum dolore quis.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat omnis itaque assumenda, fugit et similique iste illo pariatur aut repellendus sequi ipsam dicta placeat recusandae voluptate, ad earum dolore quis.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat omnis itaque assumenda, fugit et similique iste illo pariatur aut repellendus sequi ipsam dicta placeat recusandae voluptate, ad earum dolore quis.
+    return <div key={props.key} className={`${classes.messageCard} ${props.className}`}>
+        <h1>{props.title}</h1>
+        <p>{props.body}
         </p>
-        <footer className={classes.signer}>- Signer</footer>
+        <footer className={classes.signer}>- {props.signer}</footer>
     </div>
 };
 
