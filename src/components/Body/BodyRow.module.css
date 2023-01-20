@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   column-gap: 20px;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 .images {
