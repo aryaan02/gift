@@ -18,6 +18,7 @@
     color: white;
     margin-left: 20px;
     margin-top: 10px;
+    margin-bottom: 40px;
     font-size: large;
 }
 
@@ -25,7 +26,6 @@
     position:absolute;
     bottom:0;
     margin: 10px;
-    margin-top: 20px;
     right: 10px;
     font-size: 20px;
     font-family: 'Dancing Script', cursive;
