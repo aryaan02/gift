@@ -12,7 +12,7 @@ function App() {
         <AuthContextProvider>
           <Routes>
             <Route path="/" element={<SignInPage />} />
-            <Route path="/home" element={<HomePage />}></Route>
+            <Route path="/home" element={<HomePage />} />
           </Routes>
         </AuthContextProvider>
       </BrowserRouter>
