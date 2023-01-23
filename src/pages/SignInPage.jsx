@@ -6,9 +6,7 @@ const SignInPage = () => {
   
   return (
     <Fragment>
-      <Header
-        signedIn={false}
-      />
+      <Header />
       <SignIn />
     </Fragment>
   );

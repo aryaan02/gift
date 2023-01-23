@@ -19,5 +19,6 @@
 .infoText {
     text-align: center;
     font-size: 80px;
+    height: 100vh;
     color: white;
 }

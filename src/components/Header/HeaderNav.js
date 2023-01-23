@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import classes from "./HeaderNav.module.css";
 
 const HeaderNav = (props) => {
-  const { logOut } = UserAuth();
+  const { logOut, user } = UserAuth();
   const handleSignOut = async () => {
     try {
       await logOut();
@@ -15,9 +15,13 @@ const HeaderNav = (props) => {
   };
   return (
     <div className={classes.nav}>
-      {props.signedIn && <Button onClick={props.onSetImages}>Images</Button>}
-      {props.signedIn && <Button onClick={props.onSetMessages}>Messages</Button>}
-      {props.signedIn && <Button onClick={handleSignOut}><Link to="/"></Link>Sign Out</Button>}
+      {user && <Button onClick={props.onSetImages}>Images</Button>}
+      {user && <Button onClick={props.onSetMessages}>Messages</Button>}
+      {user && (
+        <Button onClick={handleSignOut}>
+          <Link to="/"></Link>Sign Out
+        </Button>
+      )}
     </div>
   );
 };

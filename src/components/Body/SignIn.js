@@ -18,7 +18,7 @@ const SignIn = (props) => {
   };
 
   useEffect(() => {
-    if (user != null) {
+    if (user) {
       navigate("/home");
     }
   }, [user, navigate]);

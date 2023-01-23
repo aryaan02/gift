@@ -20,7 +20,6 @@ const HomePage = () => {
         <Header
           onSetImages={displayTheImages}
           onSetMessages={displayTheMessages}
-          signedIn={true}
         ></Header>
         <Body displayedImages={imagesDisplayed}></Body>
       </Protected>
