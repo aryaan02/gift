@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Image from "./Image";
 
 import classes from "./BodyRow.module.css";
 
@@ -7,16 +8,7 @@ const BodyRow = (props) => {
     <Fragment>
       <div className={classes.row}>
         {props.photos.map((photo) => {
-          return <div className={classes.card}>
-            <div className={classes.inner}>
-              <div className={classes.front}>
-                <img src={photo} alt=""></img>
-              </div>
-              <div className={classes.back}>
-                <h1>Description</h1>
-              </div>
-            </div>
-          </div>;
+          return <Image photo={photo} />;
         })}
       </div>
     </Fragment>

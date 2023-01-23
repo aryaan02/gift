@@ -75,8 +75,8 @@ const BodyMessages = (props) => {
       {modalUp && (
         <MessageModal onConfirm={exitModal} onAddMessage={newMessage} />
       )}
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {isLoading && <p className={classes.infoText}>Loading...</p>}
+      {error && <p className={classes.infoText}>{error}</p>}
       {!isLoading &&
         !error &&
         messageList
