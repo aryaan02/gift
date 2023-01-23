@@ -1,21 +1,13 @@
 import { Fragment, useEffect } from "react";
-import { GoogleButton } from "react-google-button";
-import { UserAuth } from "../../context/AuthContext";
+import { useAuthValue } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 import classes from "./SignIn.module.css";
+import LoginForm from "../UI/Form/LoginForm";
 
 const SignIn = (props) => {
-  const { googleSignIn, user } = UserAuth();
+  const { user } = useAuthValue();
   const navigate = useNavigate();
-
-  const handleGoogleSignIn = async () => {
-    try {
-      await googleSignIn();
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
     if (user) {
@@ -27,9 +19,7 @@ const SignIn = (props) => {
     <Fragment>
       <div className={classes.signin}>
         <h1>Sign in to Read and Write Messages for Ethan!</h1>
-        <div className={classes.google}>
-          <GoogleButton onClick={handleGoogleSignIn} />
-        </div>
+        <LoginForm />
       </div>
     </Fragment>
   );

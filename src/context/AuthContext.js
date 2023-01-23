@@ -1,43 +1,11 @@
-import { useContext, createContext, useEffect, useState } from "react";
-import {
-  GoogleAuthProvider,
-  signInWithRedirect,
-  signOut,
-  onAuthStateChanged,
-} from "firebase/auth";
-import { auth } from "../firebase";
+import React, { useContext } from "react";
 
-const AuthContext = createContext();
+const AuthContext = React.createContext();
 
-export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+export function AuthProvider({ children, value }) {
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
 
-  const googleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
-  };
-
-  const logOut = () => {
-    signOut(auth);
-  };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      console.log("User", currentUser);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  return (
-    <AuthContext.Provider value={{ googleSignIn, logOut, user }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
-
-export const UserAuth = () => {
+export function useAuthValue() {
   return useContext(AuthContext);
-};
+}

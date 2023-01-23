@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { UserAuth } from "../../context/AuthContext";
+import { useAuthValue } from "../../context/AuthContext";
 
 import Button from "./../UI/Button/Button";
 import classes from "./MessageModal.module.css";
@@ -15,7 +15,7 @@ const ModalOverlay = (props) => {
   const [enteredMessage, setEnteredMessage] = useState("");
   const [titleBackground, setTitleBackground] = useState(true);
   const [messageBackground, setMessageBackground] = useState(true);
-  const { user } = UserAuth();
+  const { user } = useAuthValue();
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);

@@ -1,14 +1,17 @@
 import Button from "../UI/Button/Button";
-import { UserAuth } from "../../context/AuthContext";
+import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
+import { useAuthValue } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
 import classes from "./HeaderNav.module.css";
 
 const HeaderNav = (props) => {
-  const { logOut, user } = UserAuth();
+  const { user } = useAuthValue();
+
   const handleSignOut = async () => {
     try {
-      await logOut();
+      await signOut(auth);
     } catch (error) {
       console.log(error);
     }
