@@ -26,45 +26,68 @@ const RegisterForm = () => {
   };
 
   const validateEmail = () => {
-    if (email.search(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g) === -1) {
-      setError("Please enter a valid email.");
-      return;
+    if (email === "") {
+      setError({
+        title: "Please enter an email and password.",
+        message: "Don't leave it empty bruh.",
+      });
+      return false;
     }
+    if (email.search(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g) === -1) {
+      setError({
+        title: "Invalid Email",
+        message: "Please enter a valid email.",
+      });
+      return false;
+    }
+    return true;
   };
 
   const validatePassword = () => {
     if (password.length < 6 || password.length > 20) {
-      setError("Password must be between 6 and 20 characters.");
-      return;
+      setError({
+        title: "Invalid Password",
+        message: "Password must be between 6 and 20 characters.",
+      });
+      return false;
     }
     if (password === email) {
-      setError("Password cannot be the same as email.");
-      return;
+      setError({
+        title: "Invalid Password",
+        message: "Password cannot be the same as email.",
+      });
+      return false;
     }
     if (password.search(/[a-z]/i) < 0) {
-      setError("Password must contain at least one letter.");
-      return;
+      setError({
+        title: "Invalid Password",
+        message: "Password must contain at least one letter.",
+      });
+      return false;
     }
     if (password.search(/[0-9]/) < 0) {
-      setError("Password must contain at least one digit.");
-      return;
+      setError({
+        title: "Invalid Password.",
+        message: "Password must contain at least one digit.",
+      });
+      return false;
     }
+    return true;
   };
 
   const register = (e) => {
     e.preventDefault();
-    validateEmail();
-    validatePassword();
-    if (!error) {
-      console.log(email);
-      console.log(password);
+    if (validateEmail() && validatePassword()) {
       createUserWithEmailAndPassword(auth, email, password)
         .then((res) => {
-          console.log(res.user);
+          navigate("/home");
         })
-        .catch((err) => setError(err.message));
-      
-      navigate("/home");
+        .catch((err) => {
+          setError({
+            title: "Could not register. Try again.",
+            message: err.message,
+          });
+        });
     }
 
     setEmail("");

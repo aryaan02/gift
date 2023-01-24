@@ -29,16 +29,37 @@ const LoginForm = (props) => {
     setError(null);
   };
 
+  const validateEmail = () => {
+    if (email === "") {
+      setError({
+        title: "Please enter an email and password.",
+        message: "Don't leave it empty bruh.",
+      });
+      return false;
+    }
+    if (email.search(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g) === -1) {
+      setError({
+        title: "Invalid Email",
+        message: "Please enter a valid email.",
+      });
+      return false;
+    }
+    return true;
+  };
+
   const login = (e) => {
     e.preventDefault();
-    if (!error) {
+    if (validateEmail()) {
       signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
-          console.log(res.user);
+          navigate("/home");
         })
-        .catch((err) => setError(err.message));
-
-      navigate("/home");
+        .catch((err) =>
+          setError({
+            title: "Could not log in. Try again.",
+            message: err.message,
+          })
+        );
     }
 
     setEmail("");
