@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import Register from "../components/Body/Register";
 
 const RegisterPage = () => {
-
   return (
     <Fragment>
       <Header />

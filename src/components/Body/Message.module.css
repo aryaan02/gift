@@ -1,33 +1,33 @@
 .messageCard {
-    background: #741188; 
-    border: 4mm ridge rgba(229, 227, 240, 0.6);
-    border-radius: 10px;
-    position: relative;
-    width: 80%;
+  background: #741188;
+  border: 4mm ridge rgba(229, 227, 240, 0.6);
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
 }
 
 .messageCard h1 {
-    font-family: 'Dancing Script', cursive;
-    color: grey;
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 0;
+  font-family: "Dancing Script", cursive;
+  color: grey;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .messageCard p {
-    color: white;
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    font-size: large;
+  color: white;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: large;
 }
 
 .signer {
-    position:absolute;
-    bottom:0;
-    margin: 10px;
-    right: 10px;
-    font-size: 20px;
-    font-family: 'Dancing Script', cursive;
-    color: white;
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-family: "Dancing Script", cursive;
+  color: white;
 }

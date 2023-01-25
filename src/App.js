@@ -21,7 +21,7 @@ function App() {
   return (
     <div>
       <HashRouter>
-        <AuthProvider value={{user}}>
+        <AuthProvider value={{ user }}>
           <Routes>
             <Route path="/" element={<SignInPage />} />
             <Route path="/register" element={<RegisterPage />} />
