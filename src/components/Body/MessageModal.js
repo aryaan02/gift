@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { useAuthValue } from "../../context/AuthContext";
+import { auth } from "../../firebase";
 
 import Button from "./../UI/Design/Button";
 import classes from "./MessageModal.module.css";
@@ -15,7 +15,6 @@ const ModalOverlay = (props) => {
   const [enteredMessage, setEnteredMessage] = useState("");
   const [titleBackground, setTitleBackground] = useState(true);
   const [messageBackground, setMessageBackground] = useState(true);
-  const { user } = useAuthValue();
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -40,7 +39,7 @@ const ModalOverlay = (props) => {
     props.onAddMessage({
       title: enteredTitle,
       body: enteredMessage,
-      signer: user.displayName,
+      signer: auth.currentUser.displayName,
     });
   };
 

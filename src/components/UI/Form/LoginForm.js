@@ -10,6 +10,7 @@ import classes from "./LoginForm.module.css";
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [error, setError] = useState();
   const navigate = useNavigate();
 
@@ -23,6 +24,10 @@ const LoginForm = (props) => {
 
   const passwordChangeHandler = (e) => {
     setPassword(e.target.value);
+  };
+
+  const usernameChangeHandler = (e) => {
+    setUsername(e.target.value);
   };
 
   const errorHandler = () => {
@@ -52,6 +57,8 @@ const LoginForm = (props) => {
     if (validateEmail()) {
       signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
+          auth.currentUser.displayName = username;
+          console.log(auth.currentUser);
           navigate("/home");
         })
         .catch((err) =>
@@ -92,6 +99,14 @@ const LoginForm = (props) => {
             placeholder="123456"
             onChange={passwordChangeHandler}
             value={password}
+          ></input>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Ethan-Kun"
+            onChange={usernameChangeHandler}
+            value={username}
           ></input>
           <Button type="submit">Sign In</Button>
         </form>

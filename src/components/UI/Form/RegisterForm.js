@@ -72,6 +72,13 @@ const RegisterForm = () => {
       });
       return false;
     }
+    // if (password.search(/[$-/:-?{-~!"^_`\[\]]/) < 0) {
+    //   setError({
+    //     title: "Invalid Password.",
+    //     message: "Password must contain at least one symbol.",
+    //   });
+    //   return false;
+    // }
     return true;
   };
 
