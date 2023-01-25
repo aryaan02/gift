@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import RegisterForm from "../UI/Form/RegisterForm";
-import Button from "../UI/Button/Button";
+import Button from "../UI/Design/Button";
 
 import classes from "./Register.module.css";
 import { useNavigate } from "react-router-dom";

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 import { useAuthValue } from "../../context/AuthContext";
 
-import Button from "./../UI/Button/Button";
+import Button from "./../UI/Design/Button";
 import classes from "./MessageModal.module.css";
 
 const Backdrop = (props) => {

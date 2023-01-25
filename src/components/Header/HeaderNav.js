@@ -1,4 +1,4 @@
-import Button from "../UI/Button/Button";
+import Button from "../UI/Design/Button";
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
 import { useAuthValue } from "../../context/AuthContext";

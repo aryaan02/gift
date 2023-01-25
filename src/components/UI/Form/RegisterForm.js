@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { Fragment, useState } from "react";
-import Button from "../Button/Button";
+import Button from "../Design/Button";
 import ErrorModal from "../Design/ErrorModal";
 import classes from "./RegisterForm.module.css";
 import { useNavigate } from "react-router-dom";
