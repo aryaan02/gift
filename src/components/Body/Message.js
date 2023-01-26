@@ -11,7 +11,7 @@ const Message = (props) => {
     if (auth.currentUser.email === props.user) {
       setValidUser(true);
     }
-  }, []);
+  }, [props.user]);
 
   const deleteHandler = () => {
     props.onDelete(props.id);
