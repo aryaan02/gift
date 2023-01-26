@@ -30,10 +30,9 @@ const BodyDates = (props) => {
 
   const date = props.date;
   const dateArray = date.split("_");
-  console.log(dateArray);
   const dateObject = new Date(
     parseInt(dateArray[0], 10),
-    parseInt(dateArray[1], 10),
+    parseInt(dateArray[1] - 1, 10),
     parseInt(dateArray[2], 10)
   );
   const dayOfWeek = dateObject.getDay();
