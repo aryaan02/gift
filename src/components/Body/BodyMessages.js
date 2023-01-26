@@ -27,10 +27,11 @@ const BodyMessages = (props) => {
 
       for (const key in data) {
         loadedMessages.push({
-          id: key,
+          id: data[key].id,
           title: data[key].title,
           body: data[key].body,
           signer: data[key].signer,
+          user: data[key].user
         });
       }
 
@@ -66,6 +67,24 @@ const BodyMessages = (props) => {
     setModalUp(false);
   }
 
+  const deleteMessageHandler = (messageID) => {
+    console.log(messageID);
+    // const response = fetch(
+    //     "https://happy-birthday-ethan-default-rtdb.firebaseio.com/messages.json",
+    //     {
+    //         method: "DELETE",
+    //         body: JSON.stringify(messageID),
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     }
+    // );
+  };
+
+  const editMessageHandler = () => {
+    console.log("edit");
+  };
+
   const exitModal = () => {
     setModalUp(false);
   };
@@ -83,11 +102,14 @@ const BodyMessages = (props) => {
           .reverse()
           .map((message) => (
             <Message
-              key={message.body}
+              id={message.id}
               className={classes.bodyMessage}
               title={message.title}
               body={message.body}
               signer={message.signer}
+              user={message.user}
+              onDelete={deleteMessageHandler}
+              onEdit={editMessageHandler}
             />
           ))}
       <button className={classes.buttonClass} onClick={addNewMessageToMessages}>

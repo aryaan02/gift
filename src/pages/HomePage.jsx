@@ -2,6 +2,7 @@ import Protected from "../components/Protected";
 import Header from "../components/Header/Header";
 import Body from "../components/Body/Body";
 import { useState, Fragment } from "react";
+import Footer from "../components/UI/Design/Footer";
 
 const HomePage = () => {
   const [imagesDisplayed, setImagesDisplayed] = useState(true);
@@ -22,6 +23,7 @@ const HomePage = () => {
           onSetMessages={displayTheMessages}
         ></Header>
         <Body displayedImages={imagesDisplayed}></Body>
+        <Footer />
       </Protected>
     </Fragment>
   );
