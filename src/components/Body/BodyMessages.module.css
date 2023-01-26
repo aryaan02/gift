@@ -17,6 +17,16 @@
   color: white;
 }
 
+.buttonClass:hover,
+.buttonClass:active {
+  background: #741188;
+  border-color: #741188;
+}
+
+.buttonClass:focus {
+  outline: none;
+}
+
 .infoText {
   text-align: center;
   font-size: 80px;

@@ -41,7 +41,6 @@ const ModalOverlay = (props) => {
       body: enteredMessage,
       signer: auth.currentUser.displayName,
       user: auth.currentUser.email,
-      id: (Math.random() + 1).toString(36).substring(7)
     });
   };
 

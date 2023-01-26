@@ -8,7 +8,6 @@ const Message = (props) => {
   const [validUser, setValidUser] = useState(false);
 
   useEffect(() => {
-    console.log(auth.currentUser.email, props.user);
     if (auth.currentUser.email === props.user) {
       setValidUser(true);
     }
@@ -20,7 +19,7 @@ const Message = (props) => {
 
   return (
     <div
-      key={props.key}
+      key={props.id}
       className={`${classes.messageCard} ${props.className}`}
     >
       <h1>{props.title}</h1>

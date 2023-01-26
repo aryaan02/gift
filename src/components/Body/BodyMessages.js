@@ -23,11 +23,11 @@ const BodyMessages = (props) => {
 
       const data = await response.json();
 
-      const loadedMessages = [];
+      const loadedMessages = [];      
 
       for (const key in data) {
         loadedMessages.push({
-          id: data[key].id,
+          id: key,
           title: data[key].title,
           body: data[key].body,
           signer: data[key].signer,
@@ -62,23 +62,20 @@ const BodyMessages = (props) => {
       }
     );
     const data = await response.json();
-    console.log(data);
     fetchMessageHandler();
     setModalUp(false);
   }
 
-  const deleteMessageHandler = (messageID) => {
+  async function deleteMessageHandler(messageID) {
     console.log(messageID);
-    // const response = fetch(
-    //     "https://happy-birthday-ethan-default-rtdb.firebaseio.com/messages.json",
-    //     {
-    //         method: "DELETE",
-    //         body: JSON.stringify(messageID),
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //     }
-    // );
+    const response = await fetch(
+        `https://happy-birthday-ethan-default-rtdb.firebaseio.com/messages/${messageID}.json`,
+        {
+          method: "DELETE"
+        }
+    );
+    const data = await response.json();
+    fetchMessageHandler();
   };
 
   const editMessageHandler = () => {
