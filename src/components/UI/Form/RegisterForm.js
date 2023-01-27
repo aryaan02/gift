@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { Fragment, useState } from "react";
 import Button from "../Design/Button";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [error, setError] = useState();
 
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ const RegisterForm = () => {
 
   const passwordChangeHandler = (e) => {
     setPassword(e.target.value);
+  };
+
+  const usernameChangeHandler = (e) => {
+    setUsername(e.target.value);
   };
 
   const errorHandler = () => {
@@ -82,11 +87,34 @@ const RegisterForm = () => {
     return true;
   };
 
+  const validateUsername = () => {
+    if (username === "") {
+      setError({
+        title: "Please enter a username.",
+        message: "Don't leave it empty bruh.",
+      });
+      return false;
+    }
+    else {
+      return true;
+    }
+  };
+
   const register = (e) => {
     e.preventDefault();
-    if (validateEmail() && validatePassword()) {
+    if (validateEmail() && validatePassword() && validateUsername()) {
       createUserWithEmailAndPassword(auth, email, password)
         .then((res) => {
+          updateProfile(auth.currentUser, {
+            displayName: username
+          }).then(() => {
+            console.log(auth.currentUser);
+          }).catch((err) => {
+            setError({
+              title: "Could not set username. Try again.",
+              message: err.message,
+            })
+          });
           navigate("/home");
         })
         .catch((err) => {
@@ -127,6 +155,14 @@ const RegisterForm = () => {
             placeholder="123456"
             onChange={passwordChangeHandler}
             value={password}
+          ></input>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Ethan-Kun"
+            onChange={usernameChangeHandler}
+            value={username}
           ></input>
           <Button type="submit">Register</Button>
         </form>
