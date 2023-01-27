@@ -4,7 +4,8 @@ import { signOut, updateProfile } from "firebase/auth";
 import { useAuthValue } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import UsernameModal from "../UI/Design/UsernameModal";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import ErrorModal from "../UI/Design/ErrorModal";
 
 import classes from "./HeaderNav.module.css";
 
@@ -12,6 +13,7 @@ const HeaderNav = (props) => {
   const { user } = useAuthValue();
 
   const [modalUp, setModalUp] = useState(false);
+  const [error, setError] = useState();
 
   const handleSignOut = async () => {
     try {
@@ -29,6 +31,10 @@ const HeaderNav = (props) => {
     setModalUp(false);
   };
 
+  const errorHandler = () => {
+    setError(null);
+  };
+
   const changeUsername = (newUsername) => {
     console.log(newUsername);
     updateProfile(auth.currentUser, {
@@ -36,12 +42,23 @@ const HeaderNav = (props) => {
     }).then(() => {
       console.log(auth.currentUser);
     }).catch((err) => {
-      console.log(err);
+      setError({
+        title: "Error",
+        message: "Unable to edit username",
+      });
     });
     setModalUp(false);
   };
 
   return (
+    <Fragment>
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
     <div className={classes.nav}>
       {modalUp && (
         <UsernameModal username={auth.currentUser.displayName} onConfirm={changeUsername} onClose={exitModal} />
@@ -55,6 +72,7 @@ const HeaderNav = (props) => {
         </Button>
       )}
     </div>
+    </Fragment>
   );
 };
 

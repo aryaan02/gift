@@ -7,3 +7,9 @@
   padding-top: 3rem;
   background-color: #144272;
 }
+
+@media screen and (max-width: 480px) {
+  .register {
+    margin-top: 7rem;
+  }
+}

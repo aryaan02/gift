@@ -67,7 +67,6 @@ const BodyMessages = (props) => {
   }
 
   async function deleteMessageHandler(messageID) {
-    console.log(messageID);
     const response = await fetch(
         `https://happy-birthday-ethan-default-rtdb.firebaseio.com/messages/${messageID}.json`,
         {
@@ -78,8 +77,20 @@ const BodyMessages = (props) => {
     fetchMessageHandler();
   };
 
-  const editMessageHandler = () => {
-    console.log("edit");
+  async function editMessageHandler(messageID, message){
+    console.log(messageID);
+    const response = await fetch(
+      `https://happy-birthday-ethan-default-rtdb.firebaseio.com/messages/${messageID}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(message),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    fetchMessageHandler();
   };
 
   const exitModal = () => {

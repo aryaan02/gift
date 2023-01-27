@@ -20,6 +20,29 @@
   margin-top: 10px;
   margin-bottom: 40px;
   font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.messageCard input {
+  font-family: "Dancing Script", cursive;
+  color: grey;
+  font-size: 30px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  background-color: #741188;
+  font-weight: bold;
+}
+
+.messageCard textarea {
+  color: white;
+  background-color: #741188;
+  font-size: large;
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .signer {
