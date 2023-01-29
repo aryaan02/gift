@@ -62,6 +62,7 @@ const BodyMessages = (props) => {
       }
     );
     const data = await response.json();
+    console.log(data);
     fetchMessageHandler();
     setModalUp(false);
   }
@@ -74,6 +75,7 @@ const BodyMessages = (props) => {
         }
     );
     const data = await response.json();
+    console.log(data);
     fetchMessageHandler();
   };
 
@@ -90,6 +92,7 @@ const BodyMessages = (props) => {
       }
     );
     const data = await response.json();
+    console.log(data);
     fetchMessageHandler();
   };
 

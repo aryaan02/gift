@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import BodyDates from "./BodyDates";
+import BodyDescription from "./BodyDescription";
 
 import BodyRow from "./BodyRow";
 
@@ -51,6 +52,7 @@ const BodyImages = () => {
       {imageFours.map((photo, i) => (
         <Fragment>
           <BodyDates date={folders[i]} />
+          <BodyDescription date={i} />
           <BodyRow photos={photo} />
         </Fragment>
       ))}
